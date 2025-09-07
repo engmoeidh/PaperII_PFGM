@@ -1,0 +1,3 @@
+name,C3,C4,notes
+baseline_polytrope_Ra0p3,14.08,32.79,inner-matched; ring R/a=1.0
+renormalized_fit_Rring1p0,1.07e3,1.44e6,fitted intercept R*/a->0 (scheme-dependent)

@@ -1,0 +1,29 @@
+# bytecode / caches
+__pycache__/
+*.py[cod]
+*.ipynb_checkpoints
+
+# build artifacts
+build/
+dist/
+.eggs/
+*.egg-info/
+
+# LaTeX
+paper/*.aux
+paper/*.bbl
+paper/*.blg
+paper/*.log
+paper/*.out
+paper/*.toc
+paper/*.synctex.gz
+
+# editors
+.vscode/
+.idea/
+.DS_Store
+
+# big data or intermediate numerics
+data/raw/
+data/tmp/
+figures/*.pdf
