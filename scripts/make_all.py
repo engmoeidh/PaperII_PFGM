@@ -42,3 +42,11 @@ if __name__ == "__main__":
     sweep_plummer()
     make_gauge_invariant_shapes()
     print("OK: data & figures written.")
+
+import subprocess, sys, pathlib
+root = pathlib.Path(__file__).resolve().parents[1]
+py = sys.executable
+
+# Renormalized fits (reads data/C3C4_finitesphere_sweep_Rstar.csv)
+subprocess.check_call([py, str(root / "scripts" / "make_renormalized_fits.py")])
+
