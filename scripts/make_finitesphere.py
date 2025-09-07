@@ -1,4 +1,8 @@
 #!/usr/bin/env python
+# ensure project root on sys.path
+import sys, pathlib
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
+
 import os
 import numpy as np
 import pandas as pd
@@ -51,12 +55,15 @@ def sweep_finite_spheres(N=64, L=3.0, a=1.0, Rlist=(0.05,0.10,0.20,0.30), Rrings
     return df
 
 def plot_finite_radius(df):
+    import matplotlib.ticker as mt
     plt.figure(figsize=(6.2,4.4))
     for Rring in sorted(df["Rring_over_a"].unique()):
         sub = df[df["Rring_over_a"]==Rring]
         plt.plot(sub["Rstar_over_a"], sub["C3_int"], 'o-', label=f"C3_int (Rring/a={Rring})")
     plt.xlabel("R*/a"); plt.ylabel("C3 (interaction-only)")
-    plt.tight_layout(); plt.savefig("figures/C3C4_finite_radius_vs_Rstar.png", dpi=200)
+    plt.grid(True, alpha=0.3)
+    plt.tight_layout(); plt.legend()
+    plt.savefig("figures/C3C4_finite_radius_vs_Rstar.png", dpi=200)
 
 if __name__ == "__main__":
     df = sweep_finite_spheres()

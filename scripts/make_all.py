@@ -1,4 +1,8 @@
 #!/usr/bin/env python
+# ensure project root on sys.path
+import sys, pathlib
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
+
 import os, numpy as np, pandas as pd, matplotlib.pyplot as plt
 from codes.pn_solver import compute_shape_coeffs
 from codes.gauge_invariants import delta_K_shape, delta_z1_shape
